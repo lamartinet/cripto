@@ -10,6 +10,7 @@ jupyterlab = "*"
 numpy = "*"
 matplotlib = "*"
 scipy = "*"
+seaborn = "*"
 
 [dev-packages]
 ipykernel = "*"
