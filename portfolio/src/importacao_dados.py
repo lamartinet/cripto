@@ -19,5 +19,6 @@ def importar_dados(ativos, inicio, fim, nome_arquivo):
 # ativos = ["BTC-USD", "ETH-USD", "BNB-USD", "ADA-USD", "LINK-USD", "LTC-USD", "XRP-USD", "SOL1-USD", "DOT1-USD", "BCH-USD"]
 
 # a partir de junho de 2021
-ativos = ["BTC-USD", "ETH-USD", "BNB-USD", "ADA-USD", "LINK-USD", "SOL1-USD", "DOT1-USD", "UNI3-USD", "LUNA1-USD", "AVAX-USD", "ALGO-USD", "ATOM1-USD", "EGLD-USD", "LTC-USD"]
+# ativos = ["BTC-USD", "ETH-USD", "BNB-USD", "ADA-USD", "LINK-USD", "SOL-USD", "DOT1-USD"]#, "UNI3-USD", "LUNA1-USD", "AVAX-USD", "ALGO-USD", "ATOM1-USD", "EGLD-USD", "LTC-USD"]
+ativos = ["DOT1-USD"]
 importar_dados(ativos, "2021-06-01", "2021-12-17", "../dados/cotacoes-2021-jun-dez.csv")
