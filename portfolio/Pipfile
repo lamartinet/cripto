@@ -11,6 +11,7 @@ numpy = "*"
 matplotlib = "*"
 scipy = "*"
 seaborn = "*"
+plotly = "*"
 
 [dev-packages]
 ipykernel = "*"
