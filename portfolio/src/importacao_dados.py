@@ -6,9 +6,10 @@ import re
 def importar_dados(ativos, inicio, fim, nome_arquivo):
     dir_base = path.dirname(__file__)
     dados = pdr.get_data_yahoo(ativos, inicio, fim)
-    dados = dados["Close"].dropna() # remove linhas sem valor em alguma coluna
-    nomes_colunas = [re.sub(r"\d*-USD", "", simbolo) for simbolo in ativos]
+    dados = dados["Close"]
+    nomes_colunas = [re.sub(r"\d*-USD", "", simbolo) for simbolo in ativos] # renomeia as colunas
     dados.columns = nomes_colunas
+    dados = dados.dropna() # remove linhas sem valor em alguma coluna
     dados.to_csv( path.join(dir_base, nome_arquivo) )
 
 def listar_simbolos():
@@ -31,32 +32,15 @@ def listar_simbolos():
 #ativos = ["BTC-USD", "ETH-USD", "BNB-USD", "ADA-USD", "LINK-USD", "LTC-USD"]
 
 # a partir de janeiro de 2021
-ativos = ["BTC-USD", "ETH-USD", "BNB-USD", "ADA-USD", "LINK-USD", "SOL-USD", "DOT-USD", "UNI1-USD", 
-          "LUNA1-USD", "AVAX-USD", "ALGO-USD", "ATOM1-USD", "EGLD-USD", "LTC-USD", "CAKE-USD"]
+# ativos = ["BTC-USD", "ETH-USD", "BNB-USD", "SOL-USD", "ADA-USD", "LINK-USD",  "DOT-USD", "UNI1-USD",
+#           "LUNA1-USD", "AVAX-USD", "ALGO-USD", "ATOM-USD", "EGLD-USD", "LTC-USD", "CAKE-USD"]
 
-# ativos = ['BTC-USD','ETH-USD','BNB-USD','SOL-USD','HEX-USD','ADA-USD','XRP-USD','LUNA1-USD','DOT-USD','AVAX-USD',
-#           'DOGE-USD','SHIB-USD','MATIC-USD','CRO-USD','UNI1-USD','LTC-USD','LINK-USD','ALGO-USD','BCH-USD',
-#           'TRX-USD','XLM-USD','MANA-USD','ATOM-USD','AXS-USD','FTM-USD','VET-USD','FTT-USD','SAND-USD',
-#           'HBAR-USD','FIL-USD','THETA-USD','EGLD-USD','ICP-USD','ETC-USD','MIOTA-USD','XTZ-USD','HNT-USD',
-#           'XMR-USD','AAVE-USD','GRT1-USD','CAKE-USD','EOS-USD','STX-USD','FLOW-USD','LRC-USD','ONE1-USD',
-#           'BTT-USD','KSM-USD','MKR-USD','ENJ-USD']
+ativos = ["BTC-USD", "ETH-USD", "BNB-USD", "SOL-USD", "ADA-USD", "LINK-USD",  "DOT-USD", "UNI1-USD",
+          "LUNA1-USD", "AVAX-USD", "ALGO-USD", "ATOM-USD", "EGLD-USD", "LTC-USD", "CAKE-USD",
+          'XRP-USD','MATIC-USD','CRO-USD', 'BCH-USD','FTM-USD', 'XLM-USD', 'HBAR-USD', 'MANA-USD', 
+          'FTT-USD', 'VET-USD','SAND-USD','FIL-USD','THETA-USD', 'ETC-USD', 'XTZ-USD', 'HNT-USD', 
+          'XMR-USD', 'MIOTA-USD','ONE1-USD','AAVE-USD','GRT1-USD','EOS-USD', 'STX-USD','FLOW-USD',
+          'LRC-USD', 'BTT-USD','KSM-USD']
 
-importar_dados(ativos, "2021-01-01", "2021-12-24", "../dados/cotacoes-2021-jan-dez.csv")
+importar_dados(ativos, '2021-01-01', '2021-12-31', '../dados/cotacoes-2021-jan-dez.csv')
 
-# "XRP"
-# "DOGE"
-# "SHIB"
-# "MATIC"
-# "CRO"
-# "BCH"
-# "NEAR"
-# "XLM"
-# "MANA"
-# "AXS"
-# "VET"
-# "FTM"
-# "FTT"
-# "SAND"
-# "HBAR"
-# "FIL"
-# "THETA"
