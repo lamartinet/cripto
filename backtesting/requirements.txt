@@ -1,0 +1,6 @@
+jupyterlab
+voila
+vectorbt
+yfinance
+numpy
+pandas
